@@ -12,57 +12,70 @@ type props = {
 
 const Admin = (myProp: props) => {
   return (
-    <div className="w-full flex my-2 border rounded-md bg-blue-100 bg-opacity-45">
-      <div className="w-full p-3 md:w-4/12 flex flex-col">
-        <small className="text-sm font-semibold text-sky-700">
+    <div className="w-full grid grid-cols-6 my-2 border rounded-md bg-gradient-to-r from-sky-50 to-blue-50 shadow-sm hover:shadow-md transition-all">
+      {/* Name */}
+      <div className="p-3 flex flex-col justify-center">
+        <small className="text-xs font-semibold text-sky-700">
           Nama Karyawan
         </small>
-        <span>
-          <Link href={`/employee/register/${myProp.item.id}`}>
+        <span className="font-medium truncate">
+          <Link href={`/employee/register/${myProp.item.id}`} className="hover:text-sky-600 hover:underline">
             {myProp.item.name}
           </Link>
         </span>
       </div>
 
-      <div className="w-full p-3 md:w-4/12 flex flex-col">
-        <small className="text-sm font-semibold text-sky-700">
-          Username Karyawan
+      {/* Username */}
+      <div className="p-3 flex flex-col justify-center">
+        <small className="text-xs font-semibold text-sky-700">
+          Username
         </small>
-        <span>{myProp.item.user_details.username}</span>
+        <span className="truncate">
+          {myProp.item.user_details.username}
+        </span>
       </div>
 
-      <div className="w-full p-3 md:w-4/12 flex flex-col">
-        <small className="text-sm font-semibold text-sky-700">
-          NIK Karyawan
+      {/* NIK */}
+      <div className="p-3 flex flex-col justify-center">
+        <small className="text-xs font-semibold text-sky-700">
+          NIK
         </small>
-        <span>{myProp.item.nik}</span>
+        <span className="truncate">
+          {myProp.item.nik}
+        </span>
       </div>
 
-      <div className="w-full p-3 md:w-4/12 flex flex-col">
-        <small className="text-sm font-semibold text-sky-700">
-          Address Karyawan
+      {/* Address */}
+      <div className="p-3 flex flex-col justify-center">
+        <small className="text-xs font-semibold text-sky-700">
+          Address
         </small>
-        <span>{myProp.item.address}</span>
+        <span className="truncate">
+          {myProp.item.address}
+        </span>
       </div>
 
-      <div className="w-full p-3 md:w-4/12 flex flex-col">
-        <small className="text-sm font-semibold text-sky-700">
-          Phone Karyawan
+      {/* Phone */}
+      <div className="p-3 flex flex-col justify-center">
+        <small className="text-xs font-semibold text-sky-700">
+          Phone
         </small>
-        <span>{myProp.item.phone}</span>
+        <span className="truncate">
+          {myProp.item.phone}
+        </span>
       </div>
 
-      <div className="w-full p-2 md:w-2/12 flex flex-col">
-        <small className="text-sm font-semibold text-sky-700 pb-1">
+      {/* Options */}
+      <div className="p-3 flex flex-col justify-center">
+        <small className="text-xs font-semibold text-sky-700 mb-1">
           Option
         </small>
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-1 items-center">
           <EditAdmin admin={myProp.item} />
           <DeleteAdmin admin={myProp.item} />
-          <ResetAdminPassword admin={myProp.item}/>
+          <ResetAdminPassword admin={myProp.item} />
         </div>
       </div>
-      
     </div>
   );
 };

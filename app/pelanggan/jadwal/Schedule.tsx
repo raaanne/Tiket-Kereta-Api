@@ -52,11 +52,14 @@ const Schedule = (myProp: props) => {
       </div>
 
       <div className="w-full p-3 md:w-4/12 flex flex-col">
-      <small className="text-xs font-semibold text-sky-700 mb-1">
+        <small className="text-xs font-semibold text-sky-700 mb-1">
           Option
         </small>
         <Link href={`/pelanggan/jadwal/${myProp.item.id}`}>
-          <button type="button" className="px-4 py-2 bg-sky-700 bg-sky-600 text-white rounded-md">
+          <button
+            type="button"
+            className="w-full md:w-auto px-4 py-2 bg-sky-700 hover:bg-sky-600 text-white rounded-md transition duration-200 ease-in-out"
+          >
             Pesan
           </button>
         </Link>

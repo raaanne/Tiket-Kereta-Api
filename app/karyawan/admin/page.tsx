@@ -1,4 +1,5 @@
 export const dynamic = "force-dynamic";
+
 import { getServerCookie } from "@/helper/server-cookie";
 import { UserType } from "../types";
 import { axiosInstance } from "@/helper/api";
@@ -7,47 +8,45 @@ import Admin from "./Admin";
 
 const getAdmin = async (): Promise<UserType[]> => {
   try {
-    // get token from cookie
-    const TOKEN = await getServerCookie(`token`);
-    const url = `/employee`;
+    // Ambil token dari cookie
+    const TOKEN = await getServerCookie("token");
+    const url = "/employee";
 
-    // hit endpoint
-    const response: any = await axiosInstance.get(url, {
+    // Panggil API
+    const response = await axiosInstance.get(url, {
       headers: { authorization: `Bearer ${TOKEN}` },
     });
-    // postman memakai get
 
-    if (response.data.success == true) {
-      return response.data.data;
-    }
-    // = 1 hanya isi data
-    // == kalau 2 yang di compare hanya value
-    // === jika 3 maka tipe data juga
-    return [];
+    return response.data.success ? response.data.data : [];
   } catch (error) {
-    console.log(error);
+    console.error("Error fetching admin data:", error);
     return [];
   }
 };
 
 const AdminPage = async () => {
   const dataAdmin = await getAdmin();
+
   return (
     <div className="w-full p-5 bg-white">
       <h1 className="text-xl font-bold">Data Karyawan</h1>
-      <span>Halaman ini memuat data karyawan yang tersedia</span>
+      <p>Halaman ini memuat data karyawan yang tersedia.</p>
 
-      {/* add admin */}
+      {/* Form tambah admin */}
       <div className="my-3">
         <AddAdmin />
+      </div>
 
-        {/* Mapping */}
-        {dataAdmin.map((admin, index) => (
-          <Admin item={admin} key={`admin-${index}`} />
-        ))}
+      {/* Daftar Admin */}
+      <div className="space-y-3">
+        {dataAdmin.length > 0 ? (
+          dataAdmin.map((admin, index) => <Admin item={admin} key={`admin-${index}`} />)
+        ) : (
+          <p className="text-gray-500">Tidak ada data karyawan tersedia.</p>
+        )}
       </div>
     </div>
   );
 };
 
-export default AdminPage
+export default AdminPage;

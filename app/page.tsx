@@ -71,14 +71,14 @@ const LoginPage = () => {
         className="w-5/6 md:w-1/2 border rounded-lg"
       >
         {/* Header login */}
-        <div className="w-full bg-sky-700 text-white p-1">
-          <h1 className="text-xl font-bold">Login</h1>
+        <div className="w-full bg-sky-700 text-white p-2">
+          <h1 className="text-xl font-bold font-sans ml-1">Login</h1>
         </div>
 
         {/* login body */}
-        <div className="w-full p-5">
+        <div className="w-full p-5 ">
           <div className="mb-3">
-            <span className="text-sm text-blue-700">Username</span>
+            <span className="text-sm text-blue-700 font-sans">Username</span>
             <input
               type="text"
               id={`username`}

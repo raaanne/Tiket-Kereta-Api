@@ -57,7 +57,6 @@ const RegisterCustomerPage = () => {
                   <div className="mb-3">
                     <span className="text-sm text-blue-700">Username</span>
                     <input
-                    autoComplete="off"
                       type="text"
                       id={`username`}
                       value={username}
@@ -70,7 +69,6 @@ const RegisterCustomerPage = () => {
                   <div className="mb-3">
                     <span className="text-sm text-blue-700">Password</span>
                     <input
-                    autoComplete="off"
                       type="password"
                       id={`password`}
                       value={password}
