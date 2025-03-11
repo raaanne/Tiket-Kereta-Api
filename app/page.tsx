@@ -2,6 +2,7 @@
 
 import { axiosInstance } from "@/helper/api";
 import { storeCookie } from "@/helper/client-cookie";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
@@ -106,6 +107,14 @@ const LoginPage = () => {
           >
             Login
           </button>
+
+           {/* Link ke halaman register */}
+           <div className="text-center mt-3">
+            <span className="text-sm">Belum punya akun? </span>
+            <Link href="/register/customer" className="text-blue-700 hover:underline">
+              Daftar di sini
+            </Link>
+            </div>
         </div>
       </form>
     </div>
