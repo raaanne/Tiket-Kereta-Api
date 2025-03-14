@@ -15,6 +15,7 @@ const getHistory = async (start_date: string, end_date: string): Promise<History
             .get(url, {
                 headers: { Authorization: `Bearer ${TOKEN}` }
             })
+            
         if (response.data.success === true)
             return response.data.data
         return []
@@ -43,7 +44,7 @@ const HistoryPage = async (myProp: props) => {
         <div className="w-full p-3">
       <div className="bg-sky-700 w-full p-3 rounded-lg shadow-md">
         <h1 className="text-white text-xl font-bold">
-          Filter Pemesanan by Date
+          History Pemesanan by Date
         </h1>
 
         <FilterPemesanan start_date={start_date} end_date={end_date}/>

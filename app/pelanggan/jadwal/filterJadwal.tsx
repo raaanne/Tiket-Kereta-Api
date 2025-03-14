@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -19,10 +18,12 @@ const FilterJadwal = (myProp: props) => {
         `/pelanggan/jadwal?departured_location=${departured_location}&arrived_location=${arrived_location}`
       );
     }
-    // ? pada url untuk query params
   };
 
-  // Digunakan untuk update data saat komponen ini di muat ulang
+  const handleHistory = () => {
+    router.push("/pelanggan/history");
+  };
+
   useEffect(() => {
     setDeparturedLocation(myProp.departuredLocation);
     setArrivedLocation(myProp.arrivedLocation);
@@ -54,10 +55,10 @@ const FilterJadwal = (myProp: props) => {
         />
       </div>
 
-      <div className="ml-3 mt-2">
+      <div className="ml-3 mt-2 flex gap-3">
         <button
           type="button"
-          onClick={() => handleSearch()}
+          onClick={handleSearch}
           className="px-4 py-2 rounded-md bg-white hover:bg-blue-100 text-sky-700 text-sm font-semibold flex gap-1"
         >
           <svg
@@ -77,12 +78,10 @@ const FilterJadwal = (myProp: props) => {
           Search
         </button>
       </div>
-
-      <div className="ml-3 mt-2">
-        <Link href="/pelanggan/history">
+      <div className="ml-3 mt-2 flex gap-3">
         <button
           type="button"
-          onClick={() => handleSearch()}
+          onClick={handleHistory}
           className="px-4 py-2 rounded-md bg-white hover:bg-blue-100 text-sky-700 text-sm font-semibold flex gap-1"
         >
           <svg
@@ -99,9 +98,8 @@ const FilterJadwal = (myProp: props) => {
               d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
             />
           </svg>
-          Filter Pemesanan
+          History Pemesanan
         </button>
-        </Link>
       </div>
     </div>
   );
