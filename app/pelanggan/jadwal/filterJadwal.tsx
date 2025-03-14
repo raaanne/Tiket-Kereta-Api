@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -75,6 +76,32 @@ const FilterJadwal = (myProp: props) => {
           </svg>
           Search
         </button>
+      </div>
+
+      <div className="ml-3 mt-2">
+        <Link href="/pelanggan/history">
+        <button
+          type="button"
+          onClick={() => handleSearch()}
+          className="px-4 py-2 rounded-md bg-white hover:bg-blue-100 text-sky-700 text-sm font-semibold flex gap-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+          Filter Pemesanan
+        </button>
+        </Link>
       </div>
     </div>
   );
